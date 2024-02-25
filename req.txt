@@ -1,0 +1,39 @@
+Bottleneck @ file:///opt/conda/conda-bld/bottleneck_1657175564434/work
+contourpy @ file:///croot/contourpy_1700583582875/work
+cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1696677705766/work
+fonttools==4.25.0
+importlib-metadata==7.0.1
+joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1691577114857/work
+kiwisolver @ file:///croot/kiwisolver_1672387140495/work
+llvmlite @ file:///croot/llvmlite_1706910704562/work
+matplotlib @ file:///croot/matplotlib-suite_1698692105134/work
+munkres==1.1.4
+numba @ file:///home/conda/feedstock_root/build_artifacts/numba_1707024805237/work
+numexpr @ file:///croot/numexpr_1683221822650/work
+numpy @ file:///croot/numpy_and_numpy_base_1682520569166/work
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1696202382185/work
+pandas @ file:///croot/pandas_1702317985682/work/dist/pandas-2.1.4-cp310-cp310-linux_x86_64.whl#sha256=dcdb9c0337e13fd44ae36b0cc0437403549fd0bc4ab98d7550aa3564748c6736
+patsy @ file:///home/conda/feedstock_root/build_artifacts/patsy_1704469236901/work
+Pillow @ file:///croot/pillow_1695134008276/work
+platformdirs==4.2.0
+plotly @ file:///home/conda/feedstock_root/build_artifacts/plotly_1698272730927/work
+ply==3.11
+pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1652235407899/work
+PyQt5==5.15.10
+PyQt5-sip @ file:///croot/pyqt-split_1698769088074/work/pyqt_sip
+python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1693930252784/work
+scikit-learn @ file:///home/conda/feedstock_root/build_artifacts/scikit-learn_1640464151742/work
+scipy @ file:///home/conda/feedstock_root/build_artifacts/scipy_1653073872310/work
+seaborn @ file:///home/conda/feedstock_root/build_artifacts/seaborn-split_1704312987503/work
+sip @ file:///croot/sip_1698675935381/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+statsmodels @ file:///croot/statsmodels_1689937266057/work
+tenacity @ file:///home/conda/feedstock_root/build_artifacts/tenacity_1692026804430/work
+threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1689261241048/work
+tomli @ file:///home/conda/feedstock_root/build_artifacts/tomli_1644342247877/work
+tornado @ file:///home/conda/feedstock_root/build_artifacts/tornado_1648827254365/work
+tslearn @ file:///home/conda/feedstock_root/build_artifacts/tslearn_1707071435206/work
+tzdata @ file:///home/conda/feedstock_root/build_artifacts/python-tzdata_1703878702368/work
+yapf==0.40.2
+zipp==3.17.0
