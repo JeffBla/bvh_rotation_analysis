@@ -14,17 +14,18 @@ whole_data_dfs = [whole_data_df0, whole_data_df1]
 
 whole_data_ts_list = {}
 
-max_frame = 0
+num_frame = 0
 for whole_data_df in whole_data_dfs:
-    max_frame = max(whole_data_df['frame'].max(), max_frame)
+    num_frame = max(whole_data_df['frame'].count(), num_frame)
 
-scaler = TimeSeriesScalerMeanVariance(mu=0., std=1.)  # Rescale time series
+### Rescale & resample time series
+scaler = TimeSeriesScalerMeanVariance(mu=0., std=1.)
 for header in whole_data_df.columns:
     if np.isnan(whole_data_df[header].values[0]):
         continue
-    ts1 = TimeSeriesResampler(sz=max_frame).fit_transform(
+    ts1 = TimeSeriesResampler(sz=num_frame).fit_transform(
         whole_data_dfs[0][header].values)
-    ts2 = TimeSeriesResampler(sz=max_frame).fit_transform(
+    ts2 = TimeSeriesResampler(sz=num_frame).fit_transform(
         whole_data_dfs[1][header].values)
     dataset_scaled = scaler.fit_transform(np.concatenate([ts1, ts2]))
     whole_data_ts_list[header] = dataset_scaled

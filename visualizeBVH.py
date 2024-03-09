@@ -44,12 +44,4 @@ for idx, whole_data_df in enumerate(whole_data_dfs):
                                  name=header),
                       row=idx + 1,
                       col=1)
-
-# whole_data_ts = to_time_series_dataset(whole_data_dfs)
-# scaler = TimeSeriesScalerMeanVariance(mu=0., std=1.)  # Rescale time series
-# dataset_scaled = scaler.fit_transform(whole_data_ts)
-# for i in range(dataset_scaled.shape[2]):
-#     my_lcss_path, sim_lcss = lcss_path(dataset_scaled[0, :, i], dataset_scaled[1, :, i], eps=1)
-
-#     print(sim_lcss)
 fig.show()
