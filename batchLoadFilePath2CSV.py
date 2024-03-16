@@ -1,9 +1,19 @@
 import re
 import os
-import sys
+import argparse
 from pathlib import Path
 import numpy as np
 import pandas as pd
+
+parser = argparse.ArgumentParser()
+parser.add_argument("inputDirPath", type=str)
+parser.add_argument("outputPath", type=str)
+parser.add_argument("--inputFile", type=str)
+parser.add_argument('--input_xlsx', action=argparse.BooleanOptionalAction)
+
+args = parser.parse_args()
+inputDirPath = Path(args.inputDirPath)
+outputPath = Path(args.outputPath)
 
 
 def natural_sort(l):
@@ -14,9 +24,6 @@ def natural_sort(l):
     return sorted(l, key=alphanum_key)
 
 
-inputDirPath = Path(sys.argv[1])
-outputPath = Path(sys.argv[2])
-
 outputFilename = "annotation_file.csv"
 
 columns = [
@@ -25,9 +32,16 @@ columns = [
     "forehand_wave_aggressively", "forehand_no_wave"
 ]
 
-# Load the openpose file path
-df = pd.DataFrame(columns=columns)
+if args.input_xlsx and args.inputFile is not None:
+    # Load the xlsx file path
+    df = pd.read_excel(args.inputFile)
+elif args.inputFile is not None:
+    # Load the csv file path
+    df = pd.read_csv(args.inputFile)
+else:
+    df = pd.DataFrame(columns=columns)
 
-df["openpose_files"] = list(natural_sort(inputDirPath.rglob("openpose.csv")))
+df["openpose_files"] = list(
+    natural_sort(inputDirPath.rglob("openpose_target.csv")))
 
 df.to_csv(outputPath / outputFilename, index=False)
