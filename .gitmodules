@@ -1,0 +1,3 @@
+[submodule "thirdparty/PyAutoGuiRecorder"]
+	path = thirdparty/PyAutoGuiRecorder
+	url = https://github.com/JeffBla/PyAutoGUI-Recorder.git
