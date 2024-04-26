@@ -25,4 +25,3 @@ for file in "$dir_path"/*.mp4; do
         echo "File name '$file' has been renamed to '$directory/$new_file_name'"
     fi
 done
-
