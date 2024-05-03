@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 import argparse
 
-from config import videoDirPath_list
+from config import videoDirPath_list, natural_sort
 from batchGetTargetColumn import GetTargetColumnFromFileToFile
 
 parser = argparse.ArgumentParser()
@@ -29,14 +29,14 @@ for videoDirPath, outputDirName in videoDirPath_list.items():
     os.system(f"bash ./formatMp4File.sh {videoDirPath}")
 
     clipIdx = 0
-    for videoPath in videoDirPath.glob("*.mp4"):
+    for videoPath in natural_sort(videoDirPath.glob("*.mp4")):
         videoFullName = videoPath.name
 
         # Each video has its own output directory
-        outputSequenceDirPath = outputDirPath / ("clip" + str(clipIdx))
+        outputSequenceDirPath = outputDirPath / f'clip{clipIdx:04d}'
         outputSequenceDirPath.mkdir(exist_ok=True)
 
-        outputBvhPath = outputSequenceDirPath / ("motion.bvh")
+        outputBvhPath = outputSequenceDirPath / "motion.bvh"
         os.system(
             f"bash {MocapNetConverterScriptPath} {videoPath} {outputBvhPath}")
 
@@ -56,3 +56,10 @@ for videoDirPath, outputDirName in videoDirPath_list.items():
                                                       videoPath.suffix)
         os.system(f"cp {targetVideoPath} {outputVideoPath}")
         os.system(f"cp {videoPath} {outputRefVideoPath}")
+
+        # Output txt file for parent reference
+        with open(outputSequenceDirPath / "parent_ref.txt", "w") as f:
+            f.write(f"Ref Video: {videoPath}\n")
+            f.write(f"Processed Dir: {ProcessedDirPath}\n")
+
+        clipIdx += 1
